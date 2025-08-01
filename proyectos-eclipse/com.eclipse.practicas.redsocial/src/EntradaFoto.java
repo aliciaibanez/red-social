@@ -45,7 +45,7 @@ public class EntradaFoto extends Entrada
         
         String cantidadComentariosString = "";
         int numeroComentarios = 0;
-        Duration publicadoHace = Duration.between(momentoPublicacion, LocalDateTime.now());
+        Duration publicadoHace = Duration.between(getMomentoPublicacion(), LocalDateTime.now());
         long seconds = publicadoHace.toSeconds();
         long minutes = publicadoHace.toMinutes();
         long hours = publicadoHace.toHours();
@@ -54,25 +54,25 @@ public class EntradaFoto extends Entrada
         String comentarioFotoAMostrar = "";
 
         
-        if (comentarios.size() != 0) {
-            numeroComentarios = comentarios.size();
+        if (getComentarios().size() != 0) {
+            numeroComentarios = getComentarios().size();
             cantidadComentariosString = "Cantidad de comentarios: " + numeroComentarios;
             int i = 0;
-            while (i < comentarios.size()) {
-            comentarioFotoAMostrar += comentarios.get(i).toString() + "\n";
+            while (i < getComentarios().size()) {
+            comentarioFotoAMostrar += getComentarios().get(i).toString() + "\n";
             i++;
             }
         } else {
             cantidadComentariosString = "No hay comentarios";
         }
         
-        return  "Usuario: " + usuario + "\n" +
+        return  "Usuario: " + getUsuario() + "\n" +
         "Imagen: " + urlImagen + "\n" +
         "Título: " + titulo + "\n" +
         caracteristicasTemporales + "\n" +
         cantidadComentariosString + "\n" +
         comentarioFotoAMostrar + "\n" +
-        "Cantidad de me gusta: " + cantidadMeGusta + "\n";
+        "Cantidad de me gusta: " + getCantidadMeGusta() + "\n";
 
     }
 }

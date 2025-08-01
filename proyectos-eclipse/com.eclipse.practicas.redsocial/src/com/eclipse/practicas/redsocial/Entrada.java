@@ -4,10 +4,10 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 public class Entrada {
 	
-	public String usuario;
-	public LocalDateTime momentoPublicacion;
-	public int cantidadMeGusta;
-	public ArrayList <String> comentarios;
+	private String usuario;
+	private LocalDateTime momentoPublicacion;
+	private int cantidadMeGusta;
+	private ArrayList <String> comentarios;
 	
 
 
@@ -20,8 +20,21 @@ public Entrada (String autor) {
 	
 }
 
+
+
+public String getUsuario() {
+	return usuario;
+}
 public void meGusta() {
     cantidadMeGusta++;
+}
+
+public int getCantidadMeGusta() {
+	return cantidadMeGusta;
+}
+
+public ArrayList<String> getComentarios() {
+	return comentarios;
 }
 
 public void addComentario(String text) {

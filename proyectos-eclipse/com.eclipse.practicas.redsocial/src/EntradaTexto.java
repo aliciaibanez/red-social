@@ -36,7 +36,7 @@ public class EntradaTexto extends Entrada
     	
         String cantidadComentariosString = "";
         int numeroComentarios = 0;
-        Duration publicadoHace = Duration.between(momentoPublicacion, LocalDateTime.now());
+        Duration publicadoHace = Duration.between(getMomentoPublicacion(), LocalDateTime.now());
         long seconds = publicadoHace.toSeconds();
         long minutes = publicadoHace.toMinutes();
         long hours = publicadoHace.toHours();
@@ -46,17 +46,17 @@ public class EntradaTexto extends Entrada
         String comentarioFotoMostrar = "";
 
 
-        if (comentarios.size() != 0) {
-            numeroComentarios = comentarios.size();
+        if (getComentarios().size() != 0) {
+            numeroComentarios = getComentarios().size();
             cantidadComentariosString = "Cantidad de comentarios: " + numeroComentarios;
             int i = 0;
-            while (i < comentarios.size()) {
-            comentarioTextoAMostrar += comentarios.get(i).toString() + "\n";
+            while (i < getComentarios().size()) {
+            comentarioTextoAMostrar += getComentarios().get(i).toString() + "\n";
             i++;
             }
         } else {
             cantidadComentariosString = "No hay comentarios";
         }
-        return  "Usuario: " + usuario + "\n" + "Mensaje: " + mensaje + "\n" + caracteristicasTemporales + "\n" + cantidadComentariosString + "\n" + comentarioTextoAMostrar + "\n" + "Cantidad de me gusta: " + cantidadMeGusta + "\n";
+        return  "Usuario: " + getUsuario() + "\n" + "Mensaje: " + mensaje + "\n" + caracteristicasTemporales + "\n" + cantidadComentariosString + "\n" + comentarioTextoAMostrar + "\n" + "Cantidad de me gusta: " + getCantidadMeGusta() + "\n";
     }
 }
